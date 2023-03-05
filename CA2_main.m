@@ -51,7 +51,7 @@ function T_base = T_base_solve(N)
     m = (h_fin*P_fin/(k_fin*A_c))^(1/2);
     mL = m*L_fin;
     M = @(theta_b) (h_fin * P_fin * k_fin * A_c)^(1/2) * theta_b; %f1, theta_b
-    q_fin = @(theta_b) M(theta_b) * (sinh(mL) + (h_fin/(m*k_fin))*cosh(mL))/(cosh(mL) + (h_fin/m*k_fin)*sinh(mL)); %f2 <<< f1, theta_b
+    q_fin = @(theta_b) M(theta_b) * (sinh(mL) + (h_fin/(m*k_fin))*cosh(mL))/(cosh(mL) + (h_fin/(m*k_fin))*sinh(mL)); %f2 <<< f1, theta_b
     
     
     %Calcs for N fins -- Fins are hottest at x = 0
