@@ -62,7 +62,6 @@ function T_base = T_base_solve(N)
     
     theta_b = fsolve(RHS, 0);
     T_base = theta_b + T_ambient; %Return base temp in °C where temp is hottest
-
 end
 
 
