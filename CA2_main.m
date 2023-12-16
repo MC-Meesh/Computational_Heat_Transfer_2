@@ -6,6 +6,7 @@ clc; clear;  close all;
 format short 
 
 FIN_COUNT = [1, (3^2), (6^2), (9^2), (12^2)];
+CFD_data =  [285.96, 178.09, 86.13, 79.00, 128.11];
 max_temp = zeros(size(FIN_COUNT));
 
 for N = 1:length(FIN_COUNT)
@@ -16,15 +17,17 @@ figure('Name', 'Size of fin array to Base Temp')  %initalize first figure
 hold on
 
 for i = 1:length(max_temp)
-    bar(FIN_COUNT(i)^.5, max_temp(i))
+    bar(FIN_COUNT(i)^.5-.25, max_temp(i), 'blue')
+    bar(FIN_COUNT(i)^.5+.25, CFD_data(i), 'red');
 end
+
 
 xlabel('Size of Fin Array');
 ylabel('Max Temperature at Base (°C)');
 title('Size of fin array to Base Temp');
 
-legendCell = strcat('N = ',string(num2cell((FIN_COUNT) .^ .5)));
-legend(legendCell, "Location","eastoutside");
+legendCell = strcat('N= ', string(num2cell((FIN_COUNT) .^ .5)));
+legend('Analytical Data (MATLAB)', 'Simulated Data (CFD)');
 
 hold off
 
